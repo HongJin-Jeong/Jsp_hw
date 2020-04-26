@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userDAO {
+public class UserDAO {
     public static List<User> findAll() throws Exception {
-        String sql = "SELECT s.*, d.departmentName " +
+        String sql = "SELECT * " +
                 "FROM student s LEFT JOIN department d ON s.departmentId = d.id";
         try (Connection connection = DB.getConnection("student1");
              PreparedStatement statement = connection.prepareStatement(sql);

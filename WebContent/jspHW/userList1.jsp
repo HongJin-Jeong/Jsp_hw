@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, Jsp_hwJAVA.*" %>
 <%
-List<User> list = userDAO.findAll();
+	List<User> list = UserDAO.findAll();
 %>
     
 <!DOCTYPE html>
