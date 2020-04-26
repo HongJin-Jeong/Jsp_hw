@@ -1,4 +1,4 @@
-package Jsp_hw.jspHW;
+package Jsp_hwJAVA;
 
 public class Student {
 	String studentNumber;
