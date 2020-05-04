@@ -22,6 +22,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 
 <style>
   table { width: 500px; border-collapse: collapse; }
