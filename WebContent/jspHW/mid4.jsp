@@ -22,7 +22,6 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 
 <style>
   table { width: 500px; border-collapse: collapse; }
@@ -49,11 +48,10 @@
 </head>
 <body>
 
-
 <div class="container">
 
 
-<form method="post">
+<form action="mid4.jsp" method="post">
   <h1>회원 등록</h1>
   <div>
     <label>이름</label>
