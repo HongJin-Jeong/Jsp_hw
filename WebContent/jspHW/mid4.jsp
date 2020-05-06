@@ -8,7 +8,7 @@
 	    name =  request.getParameter("name");
 	    if (name == null || name.length() ==0 ){
 	    	  에러메시지 = "학생등록 실패: 이름을 입력하세요";
-	    	 
+
 	    }
 	    else if (s1 == null){
 	      	에러메시지 = "학생등록 실패: 성별을 입력하세요";
@@ -52,7 +52,7 @@
 <div class="container">
 
 
-<form action="mid4.jsp" method="post">
+<form action="mid4.jsp" >
   <h1>회원 등록</h1>
   <div>
     <label>이름</label>
@@ -89,8 +89,5 @@
   </tr>
 
 </table>
-
-
-
 </body>
 </html>
