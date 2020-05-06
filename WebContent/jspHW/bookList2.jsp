@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, Jsp_hwJAVA.*" %>
 <%
-	List<Book> list = BookDAO.findAll();
+	String srchText = request.getParameter("srchText");
+	if (srchText == null) srchText = "";
+	List<Book> list = BookDAO.findByName(srchText);
 %>
     
 <!DOCTYPE html>
@@ -22,6 +24,13 @@
 <div class="container">
 
   <h1>책목록</h1>
+  
+    
+  <form>
+  <label>저자</label>
+  <input type="text" name="srchText" value="<%= srchText %>" placeholder="검색조건" />
+  <button type="submit">조회</button>
+</form>
   
   <table class="table table-bordered table-condensed">
       <thead>

@@ -4,11 +4,19 @@ public class Book {
 	int id;
 	String title;
 	String author;
-	String categoryID;
+	int categoryID;
 	int price;
 	String publisher;
+	String categoryName;
+
 	public int getId() {
 		return id;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -25,10 +33,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getCategoryID() {
+	public int getCategoryID() {
 		return categoryID;
 	}
-	public void setCategoryID(String categoryID) {
+	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
 	}
 	public int getPrice() {
