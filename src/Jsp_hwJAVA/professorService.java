@@ -7,30 +7,30 @@ public class professorService {
     static final String 학번_중복 = "학번이 중복됩니다";
 
 
-    public static String validate(Student student) throws Exception {
-        if (StringUtil.isEmptyOrBlank(student.getStudentNumber()))
+    public static String validate(Professor professor) throws Exception {
+        if (StringUtil.isEmptyOrBlank(professor.getStudentNumber()))
             return 학번_필수;
-        if (StringUtil.isEmptyOrBlank(student.getName()))
+        if (StringUtil.isEmptyOrBlank(professor.getName()))
             return 이름_필수;
-        if (student.getYear() == 0)
+        if (professor.getYear() == 0)
             return 학년_필수;
-        Student student1 = professorDAO.findByStudentNumber(student.getStudentNumber());
-        if (student1 != null && student1.getId() != student.getId())
+        Professor professor1 = professorDAO.findByStudentNumber(professor.getStudentNumber());
+        if (professor1 != null && professor1.getId() != professor.getId())
             return 학번_중복;
         return null;
     }
 
-    public static String insert(Student student) throws Exception {
-        String errorMessage = validate(student);
+    public static String insert(Professor professor) throws Exception {
+        String errorMessage = validate(professor);
         if (errorMessage != null) return errorMessage;
-        professorDAO.insert(student);
+        professorDAO.insert(professor);
         return null;
     }
 
-    public static String update(Student student) throws Exception {
-        String errorMessage = validate(student);
+    public static String update(Professor professor) throws Exception {
+        String errorMessage = validate(professor);
         if (errorMessage != null) return errorMessage;
-        professorDAO.update(student);
+        professorDAO.update(professor);
         return null;
     }
 

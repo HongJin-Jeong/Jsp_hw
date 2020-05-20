@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.List, Jsp_hwJAVA.*" %>
 <%
-List<Student> list = professorDAO.findAll();
+List<Professor> list = professorDAO.findAll();
 %>
     
 <!DOCTYPE html>
@@ -32,12 +32,12 @@ List<Student> list = professorDAO.findAll();
     </tr>
   </thead>
   <tbody>
-    <% for (Student student : list) { %>
+    <% for (Professor professor : list) { %>
       <tr>
-        <td><%= student.getStudentNumber() %></td>
-        <td><%= student.getName() %></td>
-        <td><%= student.getDepartmentName() %></td>
-        <td class="align-center"><%= student.getYear() %></td>
+        <td><%= professor.getStudentNumber() %></td>
+        <td><%= professor.getName() %></td>
+        <td><%= professor.getDepartmentName() %></td>
+        <td class="align-center"><%= professor.getYear() %></td>
       </tr>
     <% } %>
   </tbody>

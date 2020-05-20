@@ -11,31 +11,31 @@ import java.util.List;
 public class professorDAO {
 
 
-    private static Student getStudentFrom(ResultSet resultSet) throws SQLException {
-        Student student = new Student();
-        student.setId(resultSet.getInt("id"));
-        student.setStudentNumber(resultSet.getString("studentNumber"));
-        student.setName(resultSet.getString("name"));
-        student.setDepartmentId(resultSet.getInt("departmentId"));
-        student.setYear(resultSet.getInt("year"));
-        student.setDepartmentName(resultSet.getString("departmentName"));
-        return student;
+    private static Professor getStudentFrom(ResultSet resultSet) throws SQLException {
+    	Professor professor = new Professor();
+    	professor.setId(resultSet.getInt("id"));
+    	professor.setStudentNumber(resultSet.getString("studentNumber"));
+    	professor.setName(resultSet.getString("name"));
+    	professor.setDepartmentId(resultSet.getInt("departmentId"));
+    	professor.setYear(resultSet.getInt("year"));
+    	professor.setDepartmentName(resultSet.getString("departmentName"));
+        return professor;
     }
 
-    public static List<Student> findAll() throws Exception {
+    public static List<Professor> findAll() throws Exception {
         String sql = "SELECT s.*, d.departmentName" +
                      " FROM student s LEFT JOIN department d ON s.departmentId = d.id";
         try (Connection connection = DB.getConnection("student1");
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
-            ArrayList<Student> list = new ArrayList<Student>();
+            ArrayList<Professor> list = new ArrayList<Professor>();
             while (resultSet.next())
                 list.add(getStudentFrom(resultSet));
             return list;
         }
     }
 
-    public static Student findByStudentNumber(String studentNumber) throws Exception {
+    public static Professor findByStudentNumber(String studentNumber) throws Exception {
         String sql = "SELECT s.*, d.departmentName" +
                      " FROM student s LEFT JOIN department d ON s.departmentId = d.id" +
                      " WHERE s.studentNumber = ?";
@@ -51,7 +51,7 @@ public class professorDAO {
         }
     }
 
-    public static Student findById(int id) throws Exception {
+    public static Professor findById(int id) throws Exception {
         String sql = "SELECT s.*, d.departmentName " +
                      " FROM student s LEFT JOIN department d ON s.departmentId = d.id" +
                      " WHERE s.id = ?";
@@ -67,30 +67,30 @@ public class professorDAO {
         }
     }
 
-    public static void insert(Student student) throws Exception {
+    public static void insert(Professor professor) throws Exception {
         String sql = "INSERT student (studentNumber, name, departmentId, year)" +
                      " VALUES (?, ?, ?, ?)";
         try (Connection connection = DB.getConnection("student1");
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, student.getStudentNumber());
-            statement.setString(2, student.getName());
-            statement.setInt(3, student.getDepartmentId());
-            statement.setInt(4, student.getYear());
+            statement.setString(1, professor.getStudentNumber());
+            statement.setString(2, professor.getName());
+            statement.setInt(3, professor.getDepartmentId());
+            statement.setInt(4, professor.getYear());
             statement.executeUpdate();
         }
     }
 
 
-    public static void update(Student student) throws Exception {
+    public static void update(Professor professor) throws Exception {
         String sql = "UPDATE student SET studentNumber=?, name=?, departmentId=?, year=? " +
                      " WHERE id = ?";
         try (Connection connection = DB.getConnection("student1");
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, student.getStudentNumber());
-            statement.setString(2, student.getName());
-            statement.setInt(3, student.getDepartmentId());
-            statement.setInt(4, student.getYear());
-            statement.setInt(5, student.getId());
+            statement.setString(1, professor.getStudentNumber());
+            statement.setString(2, professor.getName());
+            statement.setInt(3, professor.getDepartmentId());
+            statement.setInt(4, professor.getYear());
+            statement.setInt(5, professor.getId());
             statement.executeUpdate();
         }
     }
