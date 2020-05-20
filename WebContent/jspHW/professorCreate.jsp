@@ -2,12 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, Jsp_hwJAVA.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="student" class="Jsp_hwJAVA.Student" />
-<jsp:setProperty property="*" name="student" />
+<jsp:useBean id="professor" class="Jsp_hwJAVA.Professor" />
+<jsp:setProperty property="*" name="professor" />
 <%
 String errorMessage = null;
 if (request.getMethod().equals("POST")) {
-    errorMessage = professorService.insert(student);
+    errorMessage = professorService.insert(professor);
     if (errorMessage == null) {
         response.sendRedirect("professorList.jsp");
         return;
@@ -39,11 +39,11 @@ List<Department> departments = DepartmentDAO.findAll();
   <h1>교수 등록</h1>
   <div>
     <label>학번</label>
-    <input type="text" name="studentNumber" value="${ student.studentNumber }" />
+    <input type="text" name="studentNumber" value="${ professor.studentNumber }" />
   </div>
   <div>
     <label>이름</label>
-    <input type="text" name="name" value="${ student.name }" />
+    <input type="text" name="name" value="${ professor.name }" />
   </div>
   <div>
     <label>학과</label>
@@ -51,19 +51,15 @@ List<Department> departments = DepartmentDAO.findAll();
       <% for (Department department : departments) { %>
         <% int id = department.getId(); %>
         <% String dname = department.getDepartmentName(); %>
-        <option value="<%= id %>" <%= id == student.getDepartmentId() ? "selected" : "" %>>
+        <option value="<%= id %>" <%= id == professor.getDepartmentId() ? "selected" : "" %>>
           <%= dname %>
         </option>
       <% } %>
     </select>
   </div>
   <div>
-    <label>학년</label>
-    <input type="text" name="year" value="${ student.year }" />
-  </div>
-  <div>
     <button type="submit" class="btn"><i class="fas fa-check"></i> 저장</button>
-    <a class="btn" href="studentList1.jsp"><i class="fas fa-ban"></i> 취소</a>
+    <a class="btn" href="professorList.jsp"><i class="fas fa-ban"></i> 취소</a>
   </div>
   <% if (errorMessage != null) { %>
     <div class="error">저장 실패: <%= errorMessage %></div>
