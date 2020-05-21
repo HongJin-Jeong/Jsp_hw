@@ -20,7 +20,7 @@ List<Department> departments = DepartmentDAO.findAll();
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="/res/common.css">
+<link rel="stylesheet" href="/Jsp_hw/res/common.css">
 <script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 <style>
   form { padding: 10px 40px 40px 40px; width: 400px; }

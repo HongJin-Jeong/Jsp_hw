@@ -9,7 +9,7 @@ List<Professor> list = professorDAO.findAll();
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="/res/common.css">
+<link rel="stylesheet" href="/Jsp_hw/res/common.css">
 <style>
   div.container { width: 600px; }
   h1 { margin-bottom: -20px; }
@@ -19,8 +19,8 @@ List<Professor> list = professorDAO.findAll();
 <body>
 <div class="container">
 
-<h1>학생목록</h1>
-<a class="btn" href="studentCreate6.jsp">학생등록</a>
+<h1>교수목록</h1>
+<a class="btn" href="professorCreate.jsp">교수등록</a>
 
 <table class="table">
   <thead>
@@ -28,7 +28,6 @@ List<Professor> list = professorDAO.findAll();
       <th>학번</th>
       <th>이름</th>
       <th>학과</th>
-      <th>학년</th>
     </tr>
   </thead>
   <tbody>
@@ -37,7 +36,6 @@ List<Professor> list = professorDAO.findAll();
         <td><%= professor.getStudentNumber() %></td>
         <td><%= professor.getName() %></td>
         <td><%= professor.getDepartmentName() %></td>
-        <td class="align-center"><%= professor.getYear() %></td>
       </tr>
     <% } %>
   </tbody>
