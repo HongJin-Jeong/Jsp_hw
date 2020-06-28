@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% String name = "";
+<% 
+request.setCharacterEncoding("UTF-8");
+String name = "";
    String 에러메시지 = null;
    String s1 = request.getParameter("sex");
-   request.setCharacterEncoding("UTF-8");
+   
    if (request.getMethod().equals("POST")) {
 	    name =  request.getParameter("name");
 	    if (name == null || name.length() ==0 ){
